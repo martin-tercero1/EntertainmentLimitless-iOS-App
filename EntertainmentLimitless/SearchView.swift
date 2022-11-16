@@ -2,7 +2,7 @@
 //  SearchView.swift
 //  EntertainmentLimitless
 //
-//  Created by Duilio Rosciano on 11/13/22.
+//  Created by Duilio Rosciano & Martin Tercero on 11/13/22.
 //
 
 import SwiftUI
