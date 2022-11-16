@@ -9,8 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            MovieView(movie: MovieList(page: nil, results: nil))
+                        .tabItem {
+                            Label("Movies", systemImage: "film")
+                        }
+
+                    SeriesView(serie: SeriesList(page:nil, results: nil))
+                        .tabItem {
+                            Label("Series", systemImage: "tv.fill")
+                        }
+            
+                SearchView()
+                    .tabItem {
+                        Label("Search", systemImage: "magnifyingglass")
+                    }
+                }
     }
 }
 
@@ -19,3 +33,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+

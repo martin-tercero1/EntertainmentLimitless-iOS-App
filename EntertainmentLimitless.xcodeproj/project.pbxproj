@@ -11,6 +11,9 @@
 		4660C0082921B5EF00218E2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660C0072921B5EF00218E2F /* ContentView.swift */; };
 		4660C00A2921B5F000218E2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4660C0092921B5F000218E2F /* Assets.xcassets */; };
 		4660C00D2921B5F000218E2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4660C00C2921B5F000218E2F /* Preview Assets.xcassets */; };
+		4660C0142921B65A00218E2F /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660C0132921B65A00218E2F /* MovieView.swift */; };
+		4660C0162921B66400218E2F /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660C0152921B66400218E2F /* SeriesView.swift */; };
+		4660C0182921B66B00218E2F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660C0172921B66B00218E2F /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		4660C0072921B5EF00218E2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4660C0092921B5F000218E2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4660C00C2921B5F000218E2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4660C0132921B65A00218E2F /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
+		4660C0152921B66400218E2F /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
+		4660C0172921B66B00218E2F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,9 @@
 				4660C0052921B5EF00218E2F /* EntertainmentLimitlessApp.swift */,
 				4660C0072921B5EF00218E2F /* ContentView.swift */,
 				4660C0092921B5F000218E2F /* Assets.xcassets */,
+				4660C0132921B65A00218E2F /* MovieView.swift */,
+				4660C0152921B66400218E2F /* SeriesView.swift */,
+				4660C0172921B66B00218E2F /* SearchView.swift */,
 				4660C00B2921B5F000218E2F /* Preview Content */,
 			);
 			path = EntertainmentLimitless;
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4660C0182921B66B00218E2F /* SearchView.swift in Sources */,
 				4660C0082921B5EF00218E2F /* ContentView.swift in Sources */,
+				4660C0162921B66400218E2F /* SeriesView.swift in Sources */,
+				4660C0142921B65A00218E2F /* MovieView.swift in Sources */,
 				4660C0062921B5EF00218E2F /* EntertainmentLimitlessApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
