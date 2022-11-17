@@ -30,6 +30,8 @@ struct SeriesView: View {
     }
 }
 
+
+
 struct SeriesList: Codable {
     var page: Int?
     var results: [Serie]?

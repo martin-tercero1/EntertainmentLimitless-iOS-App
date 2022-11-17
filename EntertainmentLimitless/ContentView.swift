@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            MovieView(movie: MovieList(page: nil, results: nil))
+            MovieView(movieList: MovieList(page: nil, results: nil))
                         .tabItem {
                             Label("Movies", systemImage: "film")
                         }

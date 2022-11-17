@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MovieView: View {
-    @State var movie: MovieList
+    @State var movieList: MovieList
+    @State var movies : [Movie]?
     
     var body: some View {
         movieCard
@@ -24,38 +25,46 @@ extension MovieView {
                 
                 let decodeResponse = try JSONDecoder().decode(MovieList.self, from: data)
                 
-                movie = decodeResponse
+                movieList = decodeResponse
                 
+                movies = movieList.results
                 
             } catch {
                 print ("error", error)
             }
         }
         
-        return HStack {
-            let movieURL = "https://image.tmdb.org/t/p/w500" + (movie.results?[0].poster_path ?? "poster")
-            
-            AsyncImage(url: URL(string: movieURL)) {
-                image in image.resizable()
-            }  placeholder: {
-                ProgressView()
-            }
-            .frame(width: 200, height: 290)
-            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-            
+        return ScrollView {
             VStack {
-                Text(movie.results?[0].title ?? "Title")
-                HStack {
-                    Text("\(movie.results?[0].vote_average ?? 0)")
-                    Spacer()
-                    Text(movie.results?[0].release_date ?? "Release Date")
-                }
-                
-                Button("Read more") {
-
+                ForEach(movies ?? [], id: \.self) { movie in
+                    HStack {
+                        let movieURL = "https://image.tmdb.org/t/p/w500" + (movie.poster_path ?? "poster")
+                        
+                        AsyncImage(url: URL(string: movieURL)) {
+                            image in image.resizable()
+                        }  placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 200, height: 290)
+                        .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                        
+                        VStack {
+                            Text(movie.title ?? "Title")
+                            HStack {
+                                Text("\(movie.vote_average ?? 0)")
+                                Spacer()
+                                Text(movie.release_date ?? "Release Date")
+                            }
+                            
+                            Button("Read more") {
+                                // if else display just read more
+                            }
+                        }
+                    }.padding()
                 }
             }
-        }.padding()
+            
+        }
     }
         
 }
@@ -64,7 +73,7 @@ struct MovieList: Codable {
     var page: Int?
     var results: [Movie]?
 }
-struct Movie: Codable {
+struct Movie: Codable, Hashable {
     var adult: Bool?
     var backdrop_path: String?
     var id: Int?
@@ -75,10 +84,10 @@ struct Movie: Codable {
     var poster_path: String?
     var media_type: String?
     var genre_ids: [Int]?
-    var popularity: Float?
+    var popularity: Double?
     var release_date: String?
     var video: Bool?
-    var vote_average: Float?
+    var vote_average: Double?
     var vote_count: Int?
     
     
@@ -86,7 +95,7 @@ struct Movie: Codable {
 
 struct MovieView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieView(movie: MovieList(page:nil, results: nil))
+        MovieView(movieList: MovieList(page:nil, results: nil))
     }
 }
 
