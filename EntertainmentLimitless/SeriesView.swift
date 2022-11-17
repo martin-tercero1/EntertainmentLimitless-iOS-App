@@ -8,35 +8,69 @@
 import SwiftUI
 
 struct SeriesView: View {
-    @State var serie: SeriesList
+    @State var serieList: SeriesList
+    @State var series : [Serie]?
     
     var body: some View {
-        VStack {
-            Text(serie.results?[0].name ?? "Tv Series")
-            Button("Lets generate trending series") {
-                Task {
-                    do {
-                        let (data, _) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/trending/tv/day?api_key=8f5542b6988efb226030efa69a3226e7")!)
+        serieCard
+    }
+}
+
+extension SeriesView {
+    var serieCard: some View {
+        Task {
+            do {
+                let (data, _) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/trending/tv/day?api_key=8f5542b6988efb226030efa69a3226e7")!)
+                
+                let decodeResponse = try JSONDecoder().decode(SeriesList.self, from: data)
+                
+                serieList = decodeResponse
+                
+                series = serieList.results
+                
+            } catch {
+                print ("error", error)
+            }
+        }
+        
+        return ScrollView {
+            VStack {
+                ForEach(series ?? [], id: \.self) { serie in
+                    HStack {
+                        let serieURL = "https://image.tmdb.org/t/p/w500" + (serie.poster_path ?? "poster")
                         
-                        let decodeResponse = try JSONDecoder().decode(SeriesList.self, from: data)
+                        AsyncImage(url: URL(string: serieURL)) {
+                            image in image.resizable()
+                        }  placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 200, height: 290)
+                        .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                         
-                        serie = decodeResponse
-                    } catch {
-                        print ("error", error)
-                    }
+                        VStack {
+                            Text(serie.name ?? "Title")
+                            HStack {
+                                Text("\(serie.vote_average ?? 0)")
+                                Spacer()
+                                Text(serie.first_air_date ?? "Release Date")
+                            }
+                            
+                            Button("Read more") {
+                                // if else display just read more
+                            }
+                        }
+                    }.padding()
                 }
             }
         }
     }
 }
 
-
-
 struct SeriesList: Codable {
     var page: Int?
     var results: [Serie]?
 }
-struct Serie: Codable {
+struct Serie: Codable, Hashable {
     var adult: Bool?
     var backdrop_path: String?
     var id: Int?
@@ -58,6 +92,6 @@ struct Serie: Codable {
 
 struct SeriesView_Previews: PreviewProvider {
     static var previews: some View {
-        SeriesView(serie: SeriesList(page:nil, results: nil))
+        SeriesView(serieList: SeriesList(page:nil, results: nil))
     }
 }

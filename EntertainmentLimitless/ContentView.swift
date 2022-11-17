@@ -15,7 +15,7 @@ struct ContentView: View {
                             Label("Movies", systemImage: "film")
                         }
 
-                    SeriesView(serie: SeriesList(page:nil, results: nil))
+                    SeriesView(serieList: SeriesList(page:nil, results: nil))
                         .tabItem {
                             Label("Series", systemImage: "tv.fill")
                         }

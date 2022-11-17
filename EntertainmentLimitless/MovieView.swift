@@ -63,7 +63,6 @@ extension MovieView {
                     }.padding()
                 }
             }
-            
         }
     }
         
