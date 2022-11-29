@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            MovieView(movieList: MovieList(page: nil, results: nil))
+            MovieView(searchText: "", movieList: MovieList(page: nil, results: nil))
                         .tabItem {
                             Label("Movies", systemImage: "film")
                         }
@@ -20,9 +20,9 @@ struct ContentView: View {
                             Label("Series", systemImage: "tv.fill")
                         }
             
-                SearchView()
+                GenresView()
                     .tabItem {
-                        Label("Search", systemImage: "magnifyingglass")
+                        Label("Genres", systemImage: "play.square.stack.fill")
                     }
                 }
     }
