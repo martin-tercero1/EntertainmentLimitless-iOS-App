@@ -86,7 +86,7 @@ extension MovieView {
                                 HStack {
                                     Text("\(movie.vote_average ?? 0)")
                                     Spacer()
-                                    Text(movie.release_date ?? "Release Date")
+                                    Text(movie.release_date?[0..<4] ?? "Release Date")
                                 }
                                 
                                 Button("Read more") {
