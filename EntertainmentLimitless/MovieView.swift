@@ -68,7 +68,7 @@ extension MovieView {
 //                    .navigationTitle("Entertainment Limiltess")
 //            }
             ScrollView {
-                VStack {
+                VStack (alignment: .leading){
                     ForEach(movies ?? [], id: \.self) { movie in
                         HStack {
                             let movieURL = "https://image.tmdb.org/t/p/w500" + (movie.poster_path ?? "poster")
@@ -81,17 +81,33 @@ extension MovieView {
                             .frame(width: 200, height: 290)
                             .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                             
+                            
                             VStack {
                                 Text(movie.title ?? "Title")
                                 HStack {
-                                    Text("\(movie.vote_average ?? 0)")
-                                    Spacer()
+                                    let x = Double(movie.vote_average ?? 0).rounded(toPlaces: 2)
+                                    Text("\(String(x))")
+                                    
                                     Text(movie.release_date?[0..<4] ?? "Release Date")
                                 }
                                 
-                                Button("Read more") {
-                                    // if else display just read more
-                                }
+                                Collapsible(
+                                    label: {Text("Read more")},
+                                    content: {
+                                        HStack {
+                                            Text("\(movie.overview ?? "OverView")")
+                                            Spacer()
+                                        }
+                                        .frame(maxWidth: .infinity)
+                                        .padding()
+                                        .background(Color.white)
+                                    }
+                                )
+                                .frame(maxWidth: .infinity)
+                                
+//                                Button("Read more") {
+//                                    // if else display just read more
+//                                }
                             }
                         }.padding()
                     }

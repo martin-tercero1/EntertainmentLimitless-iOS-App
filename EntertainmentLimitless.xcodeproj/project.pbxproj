@@ -14,6 +14,8 @@
 		4660C0142921B65A00218E2F /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660C0132921B65A00218E2F /* MovieView.swift */; };
 		4660C0162921B66400218E2F /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660C0152921B66400218E2F /* SeriesView.swift */; };
 		4691E2342937FFE20025E6B2 /* NumberFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691E2332937FFE20025E6B2 /* NumberFormat.swift */; };
+		4691E236293811EF0025E6B2 /* Collapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691E235293811EF0025E6B2 /* Collapsible.swift */; };
+		4691E238293826C00025E6B2 /* Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691E237293826C00025E6B2 /* Draft.swift */; };
 		F1DECB5C2936948100AF0AF1 /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DECB5B2936948100AF0AF1 /* GenresView.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		4660C0132921B65A00218E2F /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		4660C0152921B66400218E2F /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
 		4691E2332937FFE20025E6B2 /* NumberFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormat.swift; sourceTree = "<group>"; };
+		4691E235293811EF0025E6B2 /* Collapsible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collapsible.swift; sourceTree = "<group>"; };
+		4691E237293826C00025E6B2 /* Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draft.swift; sourceTree = "<group>"; };
 		F1DECB5B2936948100AF0AF1 /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,9 +67,11 @@
 				4660C0072921B5EF00218E2F /* ContentView.swift */,
 				4660C0092921B5F000218E2F /* Assets.xcassets */,
 				4660C0132921B65A00218E2F /* MovieView.swift */,
+				4691E235293811EF0025E6B2 /* Collapsible.swift */,
 				4660C0152921B66400218E2F /* SeriesView.swift */,
 				F1DECB5B2936948100AF0AF1 /* GenresView.swift */,
 				4691E2332937FFE20025E6B2 /* NumberFormat.swift */,
+				4691E237293826C00025E6B2 /* Draft.swift */,
 				4660C00B2921B5F000218E2F /* Preview Content */,
 			);
 			path = EntertainmentLimitless;
@@ -155,6 +161,8 @@
 				4691E2342937FFE20025E6B2 /* NumberFormat.swift in Sources */,
 				4660C0062921B5EF00218E2F /* EntertainmentLimitlessApp.swift in Sources */,
 				F1DECB5C2936948100AF0AF1 /* GenresView.swift in Sources */,
+				4691E236293811EF0025E6B2 /* Collapsible.swift in Sources */,
+				4691E238293826C00025E6B2 /* Draft.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
