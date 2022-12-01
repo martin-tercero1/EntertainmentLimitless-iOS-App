@@ -20,7 +20,7 @@ struct ContentView: View {
                             Label("Series", systemImage: "tv.fill")
                         }
             
-                GenresView()
+                GenresView(genreList: Genres(genres: nil))
                     .tabItem {
                         Label("Genres", systemImage: "play.square.stack.fill")
                     }

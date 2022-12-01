@@ -27,11 +27,28 @@ var Genre: [String : MS] = [
     "Music": .movie(10402),
     "Mystery": .movie(9648),
     "Romance": .movie(10749),
-    "Science_Fiction": .movie(878),
-    "TV_Movie": .movie(10770),
+    "Science Fiction": .movie(878),
+    "TV Movie": .movie(10770),
     "Thriller": .movie(53),
     "War": .movie(10752),
-    "Western": .movie(37)
+    "Western": .movie(37),
+    
+    "Action & Adventure": .serie(10759),
+    "Animation": .serie(16),
+    "Comedy": .serie(35),
+    "Crime": .serie(80),
+    "Documentary": .serie(99),
+    "Drama": .serie(18),
+    "Family": .serie(10751),
+    "Kids": .serie(10762),
+    "Mystery": .serie(9648),
+    "News": .serie(10763),
+    "Reality": .serie(10764),
+    "Sci-Fi & Fantasy": .serie(10765),
+    "Soap": .serie(10766),
+    "Talk": .serie(10767),
+    "War & Politics": .serie(10768),
+    "Western": .serie(37)
 ]
 
 
