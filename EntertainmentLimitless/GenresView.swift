@@ -49,25 +49,25 @@ struct GenresView: View {
                             }
                         )
                     }
-//                    Collapsible(
-//                        label: {Text("Movies")},
-//                        content: {
-//                            ForEach(genres ?? [], id: \.self) { genre in
-//                                Collapsible(
-//                                    label: {Text("\(genre.name ?? "name")")},
-//                                    content: {
-//                                        HStack {
-//                                            Text("\(genre.id ?? 0)")
-//                                            Spacer()
-//                                        }
-//                                        .frame(maxWidth: .infinity)
-//                                        .padding()
-//                                        .background(Color.white)
-//                                    }
-//                                )
-//                            }
-//                        }
-//                    )
+                    Collapsible(
+                        label: {Text("Movies")},
+                        content: {
+                            ForEach(genres ?? [], id: \.self) { genre in
+                                Collapsible(
+                                    label: {Text("\(genre.name ?? "name")")},
+                                    content: {
+                                        HStack {
+                                            Text("\(genre.id ?? 0)")
+                                            Spacer()
+                                        }
+                                        .frame(maxWidth: .infinity)
+                                        .padding()
+                                        .background(Color.white)
+                                    }
+                                )
+                            }
+                        }
+                    )
                     
                 }
                 

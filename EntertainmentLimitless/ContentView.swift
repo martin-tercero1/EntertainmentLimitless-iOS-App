@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  EntertainmentLimitless
 //
-//  Created by Duilio Rosciano on 11/13/22.
+//  Created by Duilio Rosciano & Martin Tercero on 11/13/22.
 //
 
 import SwiftUI
@@ -10,21 +10,26 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            MovieView(searchText: "", movieList: MovieList(page: nil, results: nil))
-                        .tabItem {
-                            Label("Movies", systemImage: "film")
-                        }
+        MovieView(movieList: MovieList(page:nil, results: nil))
+            .tabItem {
+                Label("Movies", systemImage: "film")
+            }
 
-                    SeriesView(serieList: SeriesList(page:nil, results: nil))
-                        .tabItem {
-                            Label("Series", systemImage: "tv.fill")
-                        }
+        SeriesView(serieList: SeriesList(page:nil, results: nil))
+            .tabItem {
+                Label("Series", systemImage: "tv.fill")
+            }
             
-                GenresView(genreList: Genres(genres: nil))
-                    .tabItem {
-                        Label("Genres", systemImage: "play.square.stack.fill")
-                    }
-                }
+        SearchView(searchText: "", movieSearchList: MovieSearch(page: nil, results: nil, total_results: nil, total_pages: nil))
+            .tabItem {
+                Label("Search", systemImage: "magnifyingglass")
+            }
+            
+        GenresView(genreList: Genres(genres: nil))
+            .tabItem {
+                Label("Genres", systemImage: "play.square.stack.fill")
+            }
+        }
     }
 }
 

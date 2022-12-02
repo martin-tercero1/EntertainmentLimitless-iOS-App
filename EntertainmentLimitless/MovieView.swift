@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct MovieView: View {
-    @State var searchText: String
-    @State private var isEditing = false
-    
     @State var movieList: MovieList
     @State var movies : [Movie]?
     
@@ -25,48 +22,19 @@ extension MovieView {
         Task {
             do {
                 let (data, _) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/trending/movie/day?api_key=8f5542b6988efb226030efa69a3226e7")!)
-                
+
                 let decodeResponse = try JSONDecoder().decode(MovieList.self, from: data)
-                
+
                 movieList = decodeResponse
-                
+
                 movies = movieList.results
-                
+
             } catch {
                 print ("error", error)
             }
         }
-        
+                
         return VStack {
-            HStack {
-                TextField("Search...", text: $searchText)
-                    .padding(7)
-                    .padding(.horizontal, 25)
-                    .background(Color.gray)
-                    .cornerRadius(8)
-                    .padding(.horizontal,10)
-                    .onTapGesture {
-                        self.isEditing = true
-                    }
-                    .onSubmit {
-                        self.searchText = "submitted"
-                    }
-                if isEditing {
-                    Button (action: {
-                        self.isEditing = false
-                        self.searchText = ""
-                    }) {
-                        Text ("Cancel")
-                    }
-                    .padding(.trailing, 10)
-                    .transition(.move(edge: .trailing))
-                }
-            }
-//            NavigationView {
-//                Text("")
-//                    .searchable(text: $searchText, prompt: "Enter your Movie or TV Series")
-//                    .navigationTitle("Entertainment Limiltess")
-//            }
             ScrollView {
                 VStack (alignment: .leading){
                     ForEach(movies ?? [], id: \.self) { movie in
@@ -104,10 +72,6 @@ extension MovieView {
                                     }
                                 )
                                 .frame(maxWidth: .infinity)
-                                
-//                                Button("Read more") {
-//                                    // if else display just read more
-//                                }
                             }
                         }.padding()
                     }
@@ -121,6 +85,7 @@ struct MovieList: Codable {
     var page: Int?
     var results: [Movie]?
 }
+
 struct Movie: Codable, Hashable {
     var adult: Bool?
     var backdrop_path: String?
@@ -137,13 +102,11 @@ struct Movie: Codable, Hashable {
     var video: Bool?
     var vote_average: Double?
     var vote_count: Int?
-    
-    
 }
 
 struct MovieView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieView(searchText: "", movieList: MovieList(page:nil, results: nil))
+        MovieView(movieList: MovieList(page:nil, results: nil))
     }
 }
 
