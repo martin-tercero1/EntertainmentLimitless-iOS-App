@@ -1,41 +1,54 @@
 //
-//  SeriesView.swift
+//  GenreSeries.swift
 //  EntertainmentLimitless
 //
-//  Created by Duilio Rosciano & Martin Tercero on 11/13/22.
+//  Created by Duilio Rosciano on 12/4/22.
 //
 
 import SwiftUI
 
-struct SeriesView: View {
-    @State var serieList: SeriesList
-    @State var series : [Serie]?
+struct GenreSeries: View {
+    @State var SgenreId: Int
+    
+    @State var GserieList: SeriesList
+    @State var Gseries : [Serie]?
     
     var body: some View {
-        serieCard
-    }
+        sGenreCard
+        }
 }
 
-extension SeriesView {
-    var serieCard: some View {
+extension GenreSeries {
+    var sGenreCard: some View {
         Task {
             do {
-                let (data, _) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/trending/tv/day?api_key=8f5542b6988efb226030efa69a3226e7")!)
+                
+                var components = URLComponents()
+                components.scheme = "https"
+                components.host = "api.themoviedb.org"
+                components.path = "/3/discover/tv"
+                components.queryItems = [
+                    URLQueryItem(name: "api_key", value: "8f5542b6988efb226030efa69a3226e7"),
+                    URLQueryItem(name: "with_genres", value: "\(SgenreId)")
+                ]
+                
+                let url = components.url
+                
+                let (data, _) = try await URLSession.shared.data(from: url!)
                 
                 let decodeResponse = try JSONDecoder().decode(SeriesList.self, from: data)
                 
-                serieList = decodeResponse
+                GserieList = decodeResponse
                 
-                series = serieList.results
+                Gseries = GserieList.results
                 
             } catch {
                 print ("error", error)
             }
         }
-        
         return ScrollView {
             VStack (alignment: .leading) {
-                ForEach(series ?? [], id: \.self) { serie in
+                ForEach(Gseries ?? [], id: \.self) { serie in
                     HStack {
                         let serieURL = "https://image.tmdb.org/t/p/w500" + (serie.poster_path ?? "poster")
                         
@@ -56,8 +69,7 @@ extension SeriesView {
                                 Spacer()
                                 Text(serie.first_air_date?[0..<4] ?? "Release Date")
                             }
-                            
-                            
+    
                         }
                         
                     }.padding()
@@ -79,35 +91,11 @@ extension SeriesView {
                 }
             }
         }
+        }
     }
-}
 
-struct SeriesList: Codable {
-    var page: Int?
-    var results: [Serie]?
-}
-struct Serie: Codable, Hashable {
-    var adult: Bool?
-    var backdrop_path: String?
-    var id: Int?
-    var name: String?
-    var original_language: String?
-    var original_name: String?
-    var overview: String?
-    var poster_path: String?
-    var media_type: String?
-    var genre_ids: [Int]?
-    var popularity: Float?
-    var first_air_date: String?
-    var vote_average: Float?
-    var vote_count: Int?
-    var origin_country: [String]?
-    
-    
-}
-
-struct SeriesView_Previews: PreviewProvider {
+struct GenreSeries_Previews: PreviewProvider {
     static var previews: some View {
-        SeriesView(serieList: SeriesList(page:nil, results: nil))
+        GenreSeries(SgenreId: 10759, GserieList: SeriesList(page:nil, results: nil))
     }
 }

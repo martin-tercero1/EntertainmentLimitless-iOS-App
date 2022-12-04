@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464D27EF293D44620091FF66 /* GenreMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D27EE293D44620091FF66 /* GenreMovies.swift */; };
+		464D27F1293D4F120091FF66 /* GenreSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D27F0293D4F120091FF66 /* GenreSeries.swift */; };
+		464D27F3293D5BC90091FF66 /* SearchSeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D27F2293D5BC90091FF66 /* SearchSeriesView.swift */; };
+		464D27F5293D5BD70091FF66 /* SearchMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D27F4293D5BD70091FF66 /* SearchMovieView.swift */; };
 		4660C0062921B5EF00218E2F /* EntertainmentLimitlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660C0052921B5EF00218E2F /* EntertainmentLimitlessApp.swift */; };
 		4660C0082921B5EF00218E2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660C0072921B5EF00218E2F /* ContentView.swift */; };
 		4660C00A2921B5F000218E2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4660C0092921B5F000218E2F /* Assets.xcassets */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		464D27EE293D44620091FF66 /* GenreMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreMovies.swift; sourceTree = "<group>"; };
+		464D27F0293D4F120091FF66 /* GenreSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSeries.swift; sourceTree = "<group>"; };
+		464D27F2293D5BC90091FF66 /* SearchSeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSeriesView.swift; sourceTree = "<group>"; };
+		464D27F4293D5BD70091FF66 /* SearchMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieView.swift; sourceTree = "<group>"; };
 		4660C0022921B5EF00218E2F /* EntertainmentLimitless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntertainmentLimitless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4660C0052921B5EF00218E2F /* EntertainmentLimitlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentLimitlessApp.swift; sourceTree = "<group>"; };
 		4660C0072921B5EF00218E2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,9 +78,13 @@
 				4660C0092921B5F000218E2F /* Assets.xcassets */,
 				4660C0132921B65A00218E2F /* MovieView.swift */,
 				F193F39B2939688500B6025C /* SearchView.swift */,
+				464D27F2293D5BC90091FF66 /* SearchSeriesView.swift */,
+				464D27F4293D5BD70091FF66 /* SearchMovieView.swift */,
 				4660C0152921B66400218E2F /* SeriesView.swift */,
 				F1DECB5B2936948100AF0AF1 /* GenresView.swift */,
 				4691E235293811EF0025E6B2 /* Collapsible.swift */,
+				464D27EE293D44620091FF66 /* GenreMovies.swift */,
+				464D27F0293D4F120091FF66 /* GenreSeries.swift */,
 				4691E2332937FFE20025E6B2 /* NumberFormat.swift */,
 				4691E237293826C00025E6B2 /* Draft.swift */,
 				4660C00B2921B5F000218E2F /* Preview Content */,
@@ -158,14 +170,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464D27F5293D5BD70091FF66 /* SearchMovieView.swift in Sources */,
 				4660C0082921B5EF00218E2F /* ContentView.swift in Sources */,
 				F193F39C2939688500B6025C /* SearchView.swift in Sources */,
 				4660C0162921B66400218E2F /* SeriesView.swift in Sources */,
 				4660C0142921B65A00218E2F /* MovieView.swift in Sources */,
 				4691E2342937FFE20025E6B2 /* NumberFormat.swift in Sources */,
+				464D27F3293D5BC90091FF66 /* SearchSeriesView.swift in Sources */,
 				4660C0062921B5EF00218E2F /* EntertainmentLimitlessApp.swift in Sources */,
+				464D27F1293D4F120091FF66 /* GenreSeries.swift in Sources */,
 				F1DECB5C2936948100AF0AF1 /* GenresView.swift in Sources */,
 				4691E236293811EF0025E6B2 /* Collapsible.swift in Sources */,
+				464D27EF293D44620091FF66 /* GenreMovies.swift in Sources */,
 				4691E238293826C00025E6B2 /* Draft.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

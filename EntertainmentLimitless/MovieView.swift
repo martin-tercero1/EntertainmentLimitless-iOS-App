@@ -77,6 +77,7 @@ extension MovieView {
                         )
                         .frame(maxWidth: .infinity)
                         .padding()
+                        Divider()
                     }
                 }
             }

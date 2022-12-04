@@ -18,16 +18,17 @@ struct ContentView: View {
         SeriesView(serieList: SeriesList(page:nil, results: nil))
             .tabItem {
                 Label("Series", systemImage: "tv.fill")
+                
             }
             
-        SearchView(searchText: "", movieSearchList: MovieSearch(page: nil, results: nil, total_results: nil, total_pages: nil))
+        SearchView()
             .tabItem {
                 Label("Search", systemImage: "magnifyingglass")
             }
             
-        GenresView(genreList: Genres(genres: nil))
+        GenresView(MgenreList: Genres(genres: nil), SgenreList: Genres(genres: nil))
             .tabItem {
-                Label("Genres", systemImage: "play.square.stack.fill")
+                Label("Genres", systemImage: "square.3.layers.3d")
             }
         }
     }
