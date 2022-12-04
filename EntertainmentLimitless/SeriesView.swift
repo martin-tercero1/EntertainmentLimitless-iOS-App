@@ -34,7 +34,7 @@ extension SeriesView {
         }
         
         return ScrollView {
-            VStack {
+            VStack (alignment: .leading) {
                 ForEach(series ?? [], id: \.self) { serie in
                     HStack {
                         let serieURL = "https://image.tmdb.org/t/p/w500" + (serie.poster_path ?? "poster")
@@ -49,17 +49,32 @@ extension SeriesView {
                         
                         VStack {
                             Text(serie.name ?? "Title")
+                                .frame(width: 100.0)
                             HStack {
-                                Text("\(serie.vote_average ?? 0)")
+                                let x = Double(serie.vote_average ?? 0).rounded(toPlaces: 2)
+                                Text("\(String(x))")
                                 Spacer()
-                                Text(serie.first_air_date ?? "Release Date")
+                                Text(serie.first_air_date?[0..<4] ?? "Release Date")
                             }
                             
-                            Button("Read more") {
-                                // if else display just read more
-                            }
+                            
                         }
+                        
                     }.padding()
+                    Collapsible(
+                        label: {Text("Read more")},
+                        content: {
+                            HStack {
+                                Text("\(serie.overview ?? "OverView")")
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.white)
+                        }
+                    )
+                    .frame(maxWidth: .infinity)
+                    .padding()
                 }
             }
         }

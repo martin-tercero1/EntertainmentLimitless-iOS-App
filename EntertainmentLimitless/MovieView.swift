@@ -52,6 +52,7 @@ extension MovieView {
                             
                             VStack {
                                 Text(movie.title ?? "Title")
+                                    .frame(width: 100.0)
                                 HStack {
                                     let x = Double(movie.vote_average ?? 0).rounded(toPlaces: 2)
                                     Text("\(String(x))")
@@ -59,21 +60,23 @@ extension MovieView {
                                     Text(movie.release_date?[0..<4] ?? "Release Date")
                                 }
                                 
-                                Collapsible(
-                                    label: {Text("Read more")},
-                                    content: {
-                                        HStack {
-                                            Text("\(movie.overview ?? "OverView")")
-                                            Spacer()
-                                        }
-                                        .frame(maxWidth: .infinity)
-                                        .padding()
-                                        .background(Color.white)
-                                    }
-                                )
-                                .frame(maxWidth: .infinity)
+                                
                             }
                         }.padding()
+                        Collapsible(
+                            label: {Text("Read more")},
+                            content: {
+                                HStack {
+                                    Text("\(movie.overview ?? "OverView")")
+                                    Spacer()
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.white)
+                            }
+                        )
+                        .frame(maxWidth: .infinity)
+                        .padding()
                     }
                 }
             }
