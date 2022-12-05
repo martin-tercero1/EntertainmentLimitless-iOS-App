@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4615527F293D950500472527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		464D27EE293D44620091FF66 /* GenreMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreMovies.swift; sourceTree = "<group>"; };
 		464D27F0293D4F120091FF66 /* GenreSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSeries.swift; sourceTree = "<group>"; };
 		464D27F2293D5BC90091FF66 /* SearchSeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSeriesView.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 				464D27F0293D4F120091FF66 /* GenreSeries.swift */,
 				4691E2332937FFE20025E6B2 /* NumberFormat.swift */,
 				4660C00B2921B5F000218E2F /* Preview Content */,
+				4615527F293D950500472527 /* README.md */,
 			);
 			path = EntertainmentLimitless;
 			sourceTree = "<group>";
