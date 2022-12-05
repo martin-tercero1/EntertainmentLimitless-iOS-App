@@ -53,11 +53,13 @@ extension MovieView {
                             VStack {
                                 Text(movie.title ?? "Title")
                                     .frame(width: 100.0)
-                                HStack {
+                                Divider()
+                                VStack {
                                     let x = Double(movie.vote_average ?? 0).rounded(toPlaces: 2)
-                                    Text("\(String(x))")
-                                    
-                                    Text(movie.release_date?[0..<4] ?? "Release Date")
+                                    Text("Rating: \(String(x))")
+                                    Divider()
+                                    Text(movie.release_date ?? "Date not Found")
+                                        
                                 }
                                 
                                 

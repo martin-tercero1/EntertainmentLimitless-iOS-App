@@ -19,7 +19,6 @@
 		4660C0162921B66400218E2F /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4660C0152921B66400218E2F /* SeriesView.swift */; };
 		4691E2342937FFE20025E6B2 /* NumberFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691E2332937FFE20025E6B2 /* NumberFormat.swift */; };
 		4691E236293811EF0025E6B2 /* Collapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691E235293811EF0025E6B2 /* Collapsible.swift */; };
-		4691E238293826C00025E6B2 /* Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691E237293826C00025E6B2 /* Draft.swift */; };
 		F193F39C2939688500B6025C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F193F39B2939688500B6025C /* SearchView.swift */; };
 		F1DECB5C2936948100AF0AF1 /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DECB5B2936948100AF0AF1 /* GenresView.swift */; };
 /* End PBXBuildFile section */
@@ -38,7 +37,6 @@
 		4660C0152921B66400218E2F /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
 		4691E2332937FFE20025E6B2 /* NumberFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormat.swift; sourceTree = "<group>"; };
 		4691E235293811EF0025E6B2 /* Collapsible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collapsible.swift; sourceTree = "<group>"; };
-		4691E237293826C00025E6B2 /* Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draft.swift; sourceTree = "<group>"; };
 		F193F39B2939688500B6025C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F1DECB5B2936948100AF0AF1 /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,7 +84,6 @@
 				464D27EE293D44620091FF66 /* GenreMovies.swift */,
 				464D27F0293D4F120091FF66 /* GenreSeries.swift */,
 				4691E2332937FFE20025E6B2 /* NumberFormat.swift */,
-				4691E237293826C00025E6B2 /* Draft.swift */,
 				4660C00B2921B5F000218E2F /* Preview Content */,
 			);
 			path = EntertainmentLimitless;
@@ -182,7 +179,6 @@
 				F1DECB5C2936948100AF0AF1 /* GenresView.swift in Sources */,
 				4691E236293811EF0025E6B2 /* Collapsible.swift in Sources */,
 				464D27EF293D44620091FF66 /* GenreMovies.swift in Sources */,
-				4691E238293826C00025E6B2 /* Draft.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

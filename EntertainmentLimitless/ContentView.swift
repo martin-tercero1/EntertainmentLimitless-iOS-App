@@ -28,7 +28,7 @@ struct ContentView: View {
             
         GenresView(MgenreList: Genres(genres: nil), SgenreList: Genres(genres: nil))
             .tabItem {
-                Label("Genres", systemImage: "square.3.layers.3d")
+                Label("Genres", systemImage: "list.star")
             }
         }
     }

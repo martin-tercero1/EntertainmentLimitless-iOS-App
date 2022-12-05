@@ -22,7 +22,19 @@ extension GenreMovies {
     var mGenreCard: some View {
         Task {
             do {
-                let (data, _) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=8f5542b6988efb226030efa69a3226e7&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=\(MgenreId)&with_watch_monetization_types=flatrate")!)
+                
+                var components = URLComponents()
+                components.scheme = "https"
+                components.host = "api.themoviedb.org"
+                components.path = "/3/discover/movie"
+                components.queryItems = [
+                    URLQueryItem(name: "api_key", value: "8f5542b6988efb226030efa69a3226e7"),
+                    URLQueryItem(name: "with_genres", value: "\(MgenreId)")
+                ]
+                
+                let url = components.url
+                
+                let (data, _) = try await URLSession.shared.data(from: url!)
 
                 let decodeResponse = try JSONDecoder().decode(MovieList.self, from: data)
 
@@ -53,11 +65,12 @@ extension GenreMovies {
                             VStack {
                                 Text(movie.title ?? "Title")
                                     .frame(width: 100.0)
-                                HStack {
+                                Divider()
+                                VStack {
                                     let x = Double(movie.vote_average ?? 0).rounded(toPlaces: 2)
                                     Text("\(String(x))")
-                                    
-                                    Text(movie.release_date?[0..<4] ?? "Release Date")
+                                    Divider()
+                                    Text(movie.release_date ?? "Date not found")
                                 }
                                 
                                 

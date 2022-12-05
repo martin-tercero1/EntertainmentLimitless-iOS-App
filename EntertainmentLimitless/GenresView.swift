@@ -18,8 +18,8 @@ struct GenresView: View {
     @State var showingDetailSeries = false
     @State var showingDetailMovies = false
     
-    @State var MgenreId: Int = 28
-    @State var SgenreId: Int = 10759
+    @State var MgenreId: Int?
+    @State var SgenreId: Int?
     
     var body: some View {
         genreCard
@@ -70,7 +70,7 @@ struct GenresView: View {
                                 }) {
                                     Text("\(genre.name ?? "name")")
                                 }.sheet(isPresented: $showingDetailMovies) {
-                                    GenreMovies(MgenreId: MgenreId, GmovieList: MovieList(page:nil, results: nil))
+                                    GenreMovies(MgenreId: MgenreId ?? 10759, GmovieList: MovieList(page:nil, results: nil))
                                 }
                         Divider()
                     }
@@ -84,7 +84,7 @@ struct GenresView: View {
                                 }) {
                                     Text("\(genre.name ?? "name")")
                                 }.sheet(isPresented: $showingDetailSeries) {
-                                    GenreSeries(SgenreId: SgenreId, GserieList: SeriesList(page:nil, results: nil))
+                                    GenreSeries(SgenreId: SgenreId ?? 28, GserieList: SeriesList(page:nil, results: nil))
                                 }
                         Divider()
                     }

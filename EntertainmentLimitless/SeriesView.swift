@@ -50,11 +50,12 @@ extension SeriesView {
                         VStack {
                             Text(serie.name ?? "Title")
                                 .frame(width: 100.0)
-                            HStack {
+                            Divider()
+                            VStack {
                                 let x = Double(serie.vote_average ?? 0).rounded(toPlaces: 2)
-                                Text("\(String(x))")
-                                Spacer()
-                                Text(serie.first_air_date?[0..<4] ?? "Release Date")
+                                Text("Rating: \(String(x))")
+                                Divider()
+                                Text(serie.first_air_date ?? "Date not Found")
                             }
                             
                             
@@ -102,8 +103,6 @@ struct Serie: Codable, Hashable {
     var vote_average: Float?
     var vote_count: Int?
     var origin_country: [String]?
-    
-    
 }
 
 struct SeriesView_Previews: PreviewProvider {

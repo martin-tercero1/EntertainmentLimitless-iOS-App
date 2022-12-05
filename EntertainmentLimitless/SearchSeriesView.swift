@@ -11,8 +11,8 @@ struct SearchSeriesView: View {
     @State var searchText: String
     @State private var isEditing = false
     
-    @State var seriesSearchList: MovieSearch
-    @State var seriesSearchResults : [MovieSearchResults]?
+    @State var seriesSearchList: SerieSearch
+    @State var seriesSearchResults : [SerieSearchResults]?
     
     var body: some View {
         seriesSearchCard
@@ -21,7 +21,7 @@ struct SearchSeriesView: View {
 
 struct SearchSeriesView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchSeriesView(searchText: "", seriesSearchList: MovieSearch(page: nil, results: nil, total_results: nil, total_pages: nil))
+        SearchSeriesView(searchText: "", seriesSearchList: SerieSearch(page: nil, results: nil, total_results: nil, total_pages: nil))
     }
 }
 
@@ -56,7 +56,7 @@ extension SearchSeriesView {
                                     let url = components.url
                                     let (data, _) = try await URLSession.shared.data(from: url!)
                                 
-                                    let decodeResponse = try JSONDecoder().decode(MovieSearch.self, from: data)
+                                    let decodeResponse = try JSONDecoder().decode(SerieSearch.self, from: data)
                                 
                                     seriesSearchList = decodeResponse
                                 
@@ -82,11 +82,11 @@ extension SearchSeriesView {
 
             ScrollView {
                 VStack (alignment: .leading){
-                    ForEach(seriesSearchResults ?? [], id: \.self) { movie in
+                    ForEach(seriesSearchResults ?? [], id: \.self) { serie in
                         HStack {
-                            let movieURL = "https://image.tmdb.org/t/p/w500" + (movie.poster_path ?? "poster")
+                            let serieURL = "https://image.tmdb.org/t/p/w500" + (serie.poster_path ?? "poster")
                             
-                            AsyncImage(url: URL(string: movieURL)) {
+                            AsyncImage(url: URL(string: serieURL)) {
                                 image in image.resizable()
                             }  placeholder: {
                                 ProgressView()
@@ -96,12 +96,15 @@ extension SearchSeriesView {
                             
                             
                             VStack {
-                                Text(movie.title ?? "Title")
-                                HStack {
-                                    let x = Double(movie.vote_average ?? 0).rounded(toPlaces: 2)
-                                    Text("\(String(x))")
-                                    
-                                    Text(movie.release_date?[0..<4] ?? "Release Date")
+                                Text(serie.name ?? "Title")
+                                Divider()
+                                VStack {
+                                    let x = Double(serie.vote_average ?? 0).rounded(toPlaces: 2)
+                                    Text("Rating: \(String(x))")
+                                        .font(.subheadline)
+                                    Divider()
+                                    Text(serie.first_air_date ?? "Date not found")
+                                        .font(.footnote)
                                 }
                             }
                         }.padding()
@@ -109,7 +112,7 @@ extension SearchSeriesView {
                             label: {Text("Read more")},
                             content: {
                                 HStack {
-                                    Text("\(movie.overview ?? "OverView")")
+                                    Text("\(serie.overview ?? "OverView")")
                                     Spacer()
                                 }
                                 .frame(maxWidth: .infinity)
@@ -124,5 +127,6 @@ extension SearchSeriesView {
                 }
             }
         }
+        .padding(.top)
     }
 }
